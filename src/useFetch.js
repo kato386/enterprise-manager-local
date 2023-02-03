@@ -7,37 +7,6 @@ const useFetch = (endPointUrl) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    /* async function fetchNames() {
-      try {
-        const response = await fetch(endPointUrl);
-        const result = await response.json();
-        setData(result);
-        setIsPending(false);
-        setError(null);
-      } catch (e) {
-        setIsPending(false);
-        setError(e.message);
-      }
-    }
-  }, [endPointUrl]); */
-
-    /* fetch(endPointUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw Error("could not fetch the data");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-        setIsPending(false);
-        setError(null);
-      })
-      .catch((error) => {
-        setIsPending(false);
-        setError(error.message);
-      }); */
-
     setTimeout(() => {
       axios
         .get(endPointUrl)
@@ -45,12 +14,13 @@ const useFetch = (endPointUrl) => {
           setData(response.data);
           setIsPending(false);
           setError(null);
+          console.log(response.data);
         })
         .catch((error) => {
           setError(error.message);
           setIsPending(false);
         });
-    }, 1000);
+    }, 500);
   }, [endPointUrl]);
 
   return { data, isPending, error };

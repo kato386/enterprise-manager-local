@@ -70,7 +70,7 @@ const Register = ({ names }) => {
     useState(false);
   const [productTypesClicked, setProductTypesClicked] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSuccess(true);
     console.log(formId);

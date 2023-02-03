@@ -30,7 +30,8 @@
       "numberOfPaymentForms": 1,
       "numberOfProductsSold": 10,
       "productTypes": ["bagis", "araba", "ev", "ek hizmetler"],
-      "gatewayName": "gateway1"
+      "gateway": "gateway1",
+      "id": 1
     }
   ]
 }

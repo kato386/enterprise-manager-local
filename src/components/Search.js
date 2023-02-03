@@ -5,8 +5,8 @@ import Loading from "./Loading";
 const Search = () => {
   const {
     data: names,
-    error,
     isPending,
+    error,
   } = useFetch("http://localhost:8000/names");
 
   return (
