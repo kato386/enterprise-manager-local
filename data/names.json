@@ -1,0 +1,36 @@
+{
+  "names": [
+    {
+      "name": "Netflix",
+      "id": 1
+    },
+    {
+      "name": "steam",
+      "id": 2
+    },
+    {
+      "name": "maçkolik",
+      "id": 3
+    },
+    {
+      "name": "eec1",
+      "id": 4
+    },
+    {
+      "name": "eec2",
+      "id": 5
+    },
+    {
+      "name": "arçelik",
+      "id": 6
+    }
+  ],
+  "datas": [
+    {
+      "numberOfPaymentForms": 1,
+      "numberOfProductsSold": 10,
+      "productTypes": ["bagis", "araba", "ev", "ek hizmetler"],
+      "gatewayName": "gateway1"
+    }
+  ]
+}
