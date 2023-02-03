@@ -1,11 +1,20 @@
-const Chart = ({ productNumData, paymentFormNumberData }) => {
+const Chart = ({
+  productNumData,
+  paymentFormNumberData,
+  paymentFormNumberClicked,
+  productNumClicked,
+}) => {
   return (
     <div>
       Chart
-      <h3>Product number is {productNumData[0].numberOfProductsSold}</h3>
-      <h3>
-        Payment form number is {paymentFormNumberData[0].numberOfPaymentForms}
-      </h3>
+      {productNumClicked && (
+        <h3>Product number is {productNumData[0].numberOfProductsSold}</h3>
+      )}
+      {paymentFormNumberClicked && (
+        <h3>
+          Payment form number is {paymentFormNumberData[0].numberOfPaymentForms}
+        </h3>
+      )}
     </div>
   );
 };
