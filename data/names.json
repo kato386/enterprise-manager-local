@@ -25,13 +25,25 @@
       "id": 6
     }
   ],
-  "datas": [
+
+  "gatewayName": [
     {
-      "numberOfPaymentForms": 1,
-      "numberOfProductsSold": 10,
-      "productTypes": ["bagis", "araba", "ev", "ek hizmetler"],
-      "gateway": "gateway1",
-      "id": 1
+      "gatewayname": "gateway1"
+    }
+  ],
+  "numberPayment": [
+    {
+      "numberOfPaymentForms": 1
+    }
+  ],
+  "productNumber": [
+    {
+      "numberOfProductsSold": 10
+    }
+  ],
+  "productTypes": [
+    {
+      "productTypes": ["bagis", "araba", "ev", "ek hizmetler"]
     }
   ]
 }

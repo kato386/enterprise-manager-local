@@ -1,6 +1,6 @@
 import React from "react";
 import useFetch from "../useFetch";
-import Register from "./Register";
+import Context from "./Context";
 import Loading from "./Loading";
 const Search = () => {
   const {
@@ -20,8 +20,12 @@ const Search = () => {
           </div>
         </div>
       )}
-      {!error && isPending && <Loading />}
-      {!error && !isPending && <Register names={names} />}
+      {!error && isPending && (
+        <div className="h-[650px]">
+          <Loading />
+        </div>
+      )}
+      {!error && !isPending && <Context names={names} />}
     </div>
   );
 };

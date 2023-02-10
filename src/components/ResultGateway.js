@@ -1,9 +1,7 @@
-import useFetch from "../useFetch";
-
 const ResultGateway = ({ data }) => {
   return (
-    <div>
-      <h3>Gateway is : {data[0].gateway}</h3>
+    <div className="">
+      <h3>Gateway is : {data[0].gatewayname}</h3>
     </div>
   );
 };
