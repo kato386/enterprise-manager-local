@@ -6,23 +6,12 @@ import CheckBox from "./CheckBox";
 import InputField from "./InputField";
 
 const Context = ({ names }) => {
-  //select element methods
-
-  //form-id focus and input
-
   const [formId, setFormId] = useState("");
   const [success, setSuccess] = useState(false);
 
   const [filterInfo, setFilterInfo] = useState([]);
   const [filter, setFilter] = useState("");
-  // filter components
-
-  const [gatewayClicked, setgatewayClicked] = useState(false);
-  const [productNumClicked, setProductNumClicked] = useState(false);
-  const [paymentFormNumberClicked, setpaymentFormNumberClicked] =
-    useState(false);
-  const [productTypesClicked, setProductTypesClicked] = useState(false);
-
+  const [dummyFilter, setDummyFilter] = useState("");
   return (
     <div className="relative h-[650px] before:bg-gradient-to-r before:from-purple-600 before:to-purple-300 before:absolute before:inset-0 before:w-full before:h-full before:z-10">
       <div className="container flex justify-between absolute top-0 z-20 items-center left-1/2 -translate-x-1/2 h-full">
@@ -35,25 +24,15 @@ const Context = ({ names }) => {
             setFilterInfo={setFilterInfo}
             filter={filter}
             setFilter={setFilter}
-            setgatewayClicked={setgatewayClicked}
-            setProductNumClicked={setProductNumClicked}
-            setpaymentFormNumberClicked={setpaymentFormNumberClicked}
-            setProductTypesClicked={setProductTypesClicked}
             setSuccess={setSuccess}
+            dummyFilter={dummyFilter}
+            setDummyFilter={setDummyFilter}
           />
         </div>
         <div className="w-[700px] min-w-[400px]">
           {success ? (
             <div>
-              <Result
-                gatewayClicked={gatewayClicked}
-                productNumClicked={productNumClicked}
-                paymentFormNumberClicked={paymentFormNumberClicked}
-                productTypesClicked={productTypesClicked}
-                formId={formId}
-                filterInfo={filterInfo}
-                filter={filter}
-              />
+              <Result formId={formId} filterInfo={filterInfo} filter={filter} />
             </div>
           ) : (
             <div className="min-w-[450px] m-[50px]">

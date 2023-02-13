@@ -1,25 +1,10 @@
 import ResultGateway from "./ResultGateway";
 import Chart from "./Chart";
 import ResultProduct from "./ResultProductTypes";
-import useFetch from "../useFetch";
-import Loading from "./Loading";
-
-const Result = ({
-  formId,
-  gatewayClicked,
-  productNumClicked,
-  paymentFormNumberClicked,
-  productTypesClicked,
-  filterInfo,
-  filter,
-}) => {
-  const { data, isPending, error } = useFetch(
-    "http://localhost:8000/" + filter
-  );
-
+const Result = ({ formId, filterInfo, filter }) => {
   return (
     <div className="bg-purple-500 h-[500px] rounded-lg text-white">
-      {error && (
+      {/* {error && (
         <div className="">
           {error && (
             <h4 className="text-white text-4xl">
@@ -33,16 +18,40 @@ const Result = ({
         <div className="h-full">
           <Loading />
         </div>
+      )} */}
+
+      {filter === "gatewayName" && (
+        /* && !error && !isPending && */ <ResultGateway
+          /* data={data}
+          isPending={isPending}
+          error={error} */
+          filter={filter}
+        />
       )}
 
-      {gatewayClicked && !error && !isPending && <ResultGateway data={data} />}
-
-      {productNumClicked && !error && !isPending && <Chart data={data} />}
-      {paymentFormNumberClicked && !error && !isPending && (
-        <Chart data={data} />
+      {filter === "productNumber" && (
+        /* && !error && !isPending && */ <Chart
+          /* data={data}
+          isPending={isPending}
+          error={error} */
+          filter={filter}
+        />
       )}
-      {productTypesClicked && !error && !isPending && (
-        <ResultProduct data={data} />
+      {filter === "numberPayment" && (
+        /* && !error && !isPending && */ <Chart
+          /* data={data}
+          isPending={isPending}
+          error={error} */
+          filter={filter}
+        />
+      )}
+      {filter === "productTypes" && (
+        /* && !error && !isPending && */ <ResultProduct
+          /* data={data}
+          isPending={isPending}
+          error={error} */
+          filter={filter}
+        />
       )}
     </div>
   );

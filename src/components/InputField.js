@@ -13,10 +13,8 @@ const InputField = ({
   filter,
   setFilter,
   setSuccess,
-  setgatewayClicked,
-  setProductNumClicked,
-  setpaymentFormNumberClicked,
-  setProductTypesClicked,
+  dummyFilter,
+  setDummyFilter,
 }) => {
   //enterprise name input field
   var options = names.map((name) => ({ value: name.name, label: name.name }));
@@ -75,25 +73,21 @@ const InputField = ({
   const handleChangeForRadioBox = (e) => {
     const checkedTarget = e.target.value;
 
-    setFilter(checkedTarget);
+    setDummyFilter(checkedTarget);
     console.log(checkedTarget);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSuccess(true);
-    console.log(formId);
+
     //console.log(filterInfo);
     /* setgatewayClicked(filterInfo.includes("gatewayName"));
     setProductNumClicked(filterInfo.includes("productNumbers"));
     setpaymentFormNumberClicked(filterInfo.includes("numberPayment"));
     setProductTypesClicked(filterInfo.includes("productTypes")); */
-    console.log(filter);
-
-    setgatewayClicked(filter === "gatewayName");
-    setProductNumClicked(filter === "productNumbers");
-    setpaymentFormNumberClicked(filter === "numberPayment");
-    setProductTypesClicked(filter === "productTypes");
+    setFilter(dummyFilter);
+    console.log("değişti" + dummyFilter);
   };
 
   return (
@@ -173,7 +167,7 @@ const InputField = ({
                   className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
                   type="radio"
                   value="gatewayName"
-                  checked={filter === "gatewayName"}
+                  checked={dummyFilter === "gatewayName"}
                   onChange={handleChangeForRadioBox}
                   id="a"
                 />
@@ -190,7 +184,7 @@ const InputField = ({
                   className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
                   type="radio"
                   value="numberPayment"
-                  checked={filter === "numberPayment"}
+                  checked={dummyFilter === "numberPayment"}
                   onChange={handleChangeForRadioBox}
                   id="a"
                 />
@@ -206,7 +200,7 @@ const InputField = ({
                   className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
                   type="radio"
                   value="productNumber"
-                  checked={filter === "productNumber"}
+                  checked={dummyFilter === "productNumber"}
                   onChange={handleChangeForRadioBox}
                   id="a"
                 />
@@ -222,7 +216,7 @@ const InputField = ({
                   className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
                   type="radio"
                   value="productTypes"
-                  checked={filter === "productTypes"}
+                  checked={dummyFilter === "productTypes"}
                   onChange={handleChangeForRadioBox}
                   id="a"
                 />

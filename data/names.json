@@ -26,24 +26,16 @@
     }
   ],
 
-  "gatewayName": [
-    {
-      "gatewayname": "gateway1"
-    }
-  ],
-  "numberPayment": [
-    {
-      "numberOfPaymentForms": 1
-    }
-  ],
-  "productNumber": [
-    {
-      "numberOfProductsSold": 10
-    }
-  ],
-  "productTypes": [
-    {
-      "productTypes": ["bagis", "araba", "ev", "ek hizmetler"]
-    }
-  ]
+  "gatewayName": {
+    "gatewayname": "gateway1"
+  },
+  "numberPayment": {
+    "numberOfPaymentForms": 1
+  },
+  "productNumber": {
+    "numberOfProductsSold": 10
+  },
+  "productTypes": {
+    "productTypes": ["bagis", "araba", "ev", "ek hizmetler"]
+  }
 }
