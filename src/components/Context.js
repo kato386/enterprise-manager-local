@@ -6,19 +6,18 @@ import CheckBox from "./CheckBox";
 import InputField from "./InputField";
 
 const Context = ({ names }) => {
-  const [formId, setFormId] = useState("");
+  const [realFormId, setRealFormId] = useState("");
   const [success, setSuccess] = useState(false);
 
   const [filterInfo, setFilterInfo] = useState([]);
   const [filter, setFilter] = useState("");
   const [dummyFilter, setDummyFilter] = useState("");
+  const [enterpriseNames, setEnterpriseNames] = useState(["now"]);
   return (
     <div className="relative h-[650px] before:bg-gradient-to-r before:from-purple-600 before:to-purple-300 before:absolute before:inset-0 before:w-full before:h-full before:z-10">
       <div className="container flex justify-between absolute top-0 z-20 items-center left-1/2 -translate-x-1/2 h-full">
         <div>
           <InputField
-            setFormId={setFormId}
-            formId={formId}
             names={names}
             filterInfo={filterInfo}
             setFilterInfo={setFilterInfo}
@@ -27,12 +26,19 @@ const Context = ({ names }) => {
             setSuccess={setSuccess}
             dummyFilter={dummyFilter}
             setDummyFilter={setDummyFilter}
+            setRealFormId={setRealFormId}
+            setEnterpriseNames={setEnterpriseNames}
           />
         </div>
         <div className="w-[700px] min-w-[400px]">
           {success ? (
             <div>
-              <Result formId={formId} filterInfo={filterInfo} filter={filter} />
+              <Result
+                realFormId={realFormId}
+                filterInfo={filterInfo}
+                filter={filter}
+                enterpriseNames={enterpriseNames}
+              />
             </div>
           ) : (
             <div className="min-w-[450px] m-[50px]">

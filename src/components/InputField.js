@@ -5,8 +5,6 @@ import RadioButton from "./RadioButton";
 const USER_REGEX = /^[0-9]{12}$/;
 
 const InputField = ({
-  setFormId,
-  formId,
   filterInfo,
   setFilterInfo,
   names,
@@ -15,6 +13,8 @@ const InputField = ({
   setSuccess,
   dummyFilter,
   setDummyFilter,
+  setRealFormId,
+  setEnterpriseNames,
 }) => {
   //enterprise name input field
   var options = names.map((name) => ({ value: name.name, label: name.name }));
@@ -56,7 +56,7 @@ const InputField = ({
       userRef.current.focus();
     }
   }, [showHide]);
-
+  const [formId, setFormId] = useState("");
   useEffect(() => {
     if (showHide === "yes") {
       const result = USER_REGEX.test(formId);
@@ -74,7 +74,6 @@ const InputField = ({
     const checkedTarget = e.target.value;
 
     setDummyFilter(checkedTarget);
-    console.log(checkedTarget);
   };
 
   const handleSubmit = (e) => {
@@ -86,8 +85,9 @@ const InputField = ({
     setProductNumClicked(filterInfo.includes("productNumbers"));
     setpaymentFormNumberClicked(filterInfo.includes("numberPayment"));
     setProductTypesClicked(filterInfo.includes("productTypes")); */
+    setEnterpriseNames(selectedElements);
+    setRealFormId(formId);
     setFilter(dummyFilter);
-    console.log("değişti" + dummyFilter);
   };
 
   return (
@@ -291,7 +291,13 @@ const InputField = ({
         </div>
         <button
           className="bg-orange-400 w-full h-12 transition-colors hover:bg-purple-700 hover:text-orange-400 mt-3 flex items-center justify-center rounded-lg text-purple-700"
-          disabled={!(showHide === "no") & !validName ? true : false}
+          disabled={
+            dummyFilter === "" ||
+            selectedElements.length == 0 ||
+            !(showHide === "no") & !validName
+              ? true
+              : false
+          }
         >
           Submit
         </button>

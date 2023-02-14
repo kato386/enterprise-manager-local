@@ -1,12 +1,11 @@
-import Loading from "./Loading";
-import useFetch from "../useFetch";
-
-const ResultGateway = ({ /* data, error,isPending, */ filter }) => {
+import Loading from "../Loading";
+import useFetch from "../../useFetch";
+const ResultProductTypes = ({ /* data, isPending, error, */ filter }) => {
   const { data, isPending, error } = useFetch(
     "http://localhost:8000/" + filter
   );
   return (
-    <div className="">
+    <div>
       {error && (
         <div className="">
           {error && (
@@ -22,14 +21,18 @@ const ResultGateway = ({ /* data, error,isPending, */ filter }) => {
           <Loading />
         </div>
       )}
-
       {!error && !isPending && (
         <div>
-          <h3>Gateway is : {data.gatewayname}</h3>
+          ResultProduct
+          <ul>
+            {data.productTypes.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
   );
 };
 
-export default ResultGateway;
+export default ResultProductTypes;

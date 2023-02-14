@@ -22,7 +22,6 @@ const useFetch = (endPointUrl) => {
         setError(error.message);
         setIsPending(false);
       });
-    console.log("fired for : " + endPointUrl);
   }, [endPointUrl]);
 
   return { data, isPending, error };
