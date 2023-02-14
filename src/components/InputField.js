@@ -50,21 +50,26 @@ const InputField = ({
       setFilterInfo(filters.filter((e) => e !== value));
     }
   };
-
+  const [formId, setFormId] = useState("");
   useEffect(() => {
     if (showHide === "yes") {
       userRef.current.focus();
     }
   }, [showHide]);
-  const [formId, setFormId] = useState("");
+
   useEffect(() => {
     if (showHide === "yes") {
       const result = USER_REGEX.test(formId);
       setValidName(result);
     }
   }, [formId]);
+
   const handleshow = (e) => {
     const getshow = e.target.value;
+    if (getshow === "no") {
+      setFormId("");
+      userRef.current.value = "";
+    }
     setShowHide(getshow);
   };
 
