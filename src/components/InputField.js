@@ -3,7 +3,7 @@ import AsyncSelect from "react-select/async";
 import { useEffect, useState, useRef } from "react";
 import RadioButton from "./RadioButton";
 const USER_REGEX = /^[0-9]{12}$/;
-
+const DAYS_REGEX = /^[1-9][0-9]$/;
 const InputField = ({
   filterInfo,
   setFilterInfo,
@@ -15,6 +15,7 @@ const InputField = ({
   setDummyFilter,
   setRealFormId,
   setEnterpriseNames,
+  setDays,
 }) => {
   //enterprise name input field
   var options = names.map((name) => ({ value: name.name, label: name.name }));
@@ -40,6 +41,7 @@ const InputField = ({
 
   const userRef = useRef();
 
+  //checkboxla multi select durumda isimleri biriktirmek için gerekli method.
   const handleChange = (e) => {
     const { value, checked } = e.target;
     const filters = filterInfo;
@@ -85,18 +87,25 @@ const InputField = ({
     e.preventDefault();
     setSuccess(true);
 
-    //console.log(filterInfo);
-    /* setgatewayClicked(filterInfo.includes("gatewayName"));
-    setProductNumClicked(filterInfo.includes("productNumbers"));
-    setpaymentFormNumberClicked(filterInfo.includes("numberPayment"));
-    setProductTypesClicked(filterInfo.includes("productTypes")); */
     setEnterpriseNames(selectedElements);
     setRealFormId(formId);
     setFilter(dummyFilter);
+    setDays(inputDays);
   };
 
+  /////////////////////////////////show hide days input field.
+  const [showHideDays, setShowHideDays] = useState(false);
+  const [inputDays, setInputDays] = useState();
+  useEffect(() => {
+    if (dummyFilter === "productNumber") {
+      setShowHideDays(true);
+    } else {
+      setShowHideDays(false);
+    }
+  }, [dummyFilter]);
+
   return (
-    <div className="w-[400px] min-w-[400px] bg-gray-50 rounded-lg h-auto p-6">
+    <div className="w-[400px] min-w-[400px] bg-gray-50 rounded-lg p-6">
       <h4 className="text-center p-2 text-lg text-gray-500">
         Enter Search Parameters.
       </h4>
@@ -124,27 +133,6 @@ const InputField = ({
 
         <div className="container flex justify-between w-full h-[150px] bg-purple-300 p-2 mt-2">
           <div className="grid grid-cols-2 grid-rows-2">
-            {/* <CheckBox
-              value="gatewayName"
-              name={"Gateway name."}
-              handleChange={handleChange}
-            />
-            <CheckBox
-              value="numberPayment"
-              name={"Number of payment forms."}
-              handleChange={handleChange}
-            />
-            <CheckBox
-              value="productNumber"
-              name={"Number of products sold."}
-              handleChange={handleChange}
-            />
-            <CheckBox
-              value="productTypes"
-              name={"Product types."}
-              handleChange={handleChange}
-            /> */}
-
             {/* <RadioButton
               value="gatewayName"
               name={"Gateway name."}
@@ -259,13 +247,26 @@ const InputField = ({
             />
           </div>
         </div>
+        <div className={showHideDays == true ? "" : "hidden"}>
+          <div className="grid grid-rows-2 gap-1">
+            <label className="text-gray-500 font-bold " htmlFor="days">
+              Number of days.(last x days):
+            </label>
+            <input
+              className="row-span-1 h-10 border-2 border-gray-200 rounded p-3 w-full"
+              type="text"
+              id="days"
+              autoComplete="off"
+              onChange={(e) => setInputDays(e.target.value)}
+              required={showHideDays == true}
+            />
+          </div>
+        </div>
+
         <div className={showHide === "yes" ? "" : "hidden"}>
           <div className="grid grid-cols-1 grid-rows-2 gap-1">
             <div className="flex items-center">
-              <label
-                className="text-gray-500 font-bold whitespace-nowrap"
-                htmlFor="username"
-              >
+              <label className="text-gray-500 font-bold " htmlFor="username">
                 FormID:
               </label>
             </div>
@@ -284,9 +285,7 @@ const InputField = ({
 
           <p
             className={
-              /* formId && */ !validName
-                ? "bg-black text-white p-3 mt-3 rounded"
-                : "hidden"
+              !validName ? "bg-black text-white p-3 mt-3 rounded" : "hidden"
             }
           >
             12 characters.

@@ -2,30 +2,11 @@ import ResultGateway from "./ResultPages/ResultGateway";
 import PaymentFormResult from "./ResultPages/PaymentFormResult";
 import ResultProduct from "./ResultPages/ResultProductTypes";
 import SoldProductResult from "./ResultPages/SoldProductResult";
-const Result = ({ realFormId, filterInfo, filter, enterpriseNames }) => {
+const Result = ({ realFormId, filterInfo, filter, enterpriseNames, days }) => {
   return (
     <div className="bg-purple-500 h-[500px] rounded-lg text-white">
-      {/* {error && (
-        <div className="">
-          {error && (
-            <h4 className="text-white text-4xl">
-              {error + " accured."}
-              <br />
-            </h4>
-          )}
-        </div>
-      )}
-      {!error && isPending && (
-        <div className="h-full">
-          <Loading />
-        </div>
-      )} */}
-
       {filter === "gatewayName" && (
-        /* && !error && !isPending && */ <ResultGateway
-          /* data={data}
-          isPending={isPending}
-          error={error} */
+        <ResultGateway
           filter={filter}
           realFormId={realFormId}
           enterpriseNames={enterpriseNames}
@@ -33,30 +14,22 @@ const Result = ({ realFormId, filterInfo, filter, enterpriseNames }) => {
       )}
 
       {filter === "productNumber" && (
-        /* && !error && !isPending && */ <SoldProductResult
-          /* data={data}
-          isPending={isPending}
-          error={error} */
+        <SoldProductResult
           filter={filter}
           realFormId={realFormId}
           enterpriseNames={enterpriseNames}
+          days={days}
         />
       )}
       {filter === "numberPayment" && (
-        /* && !error && !isPending && */ <PaymentFormResult
-          /* data={data}
-          isPending={isPending}
-          error={error} */
+        <PaymentFormResult
           filter={filter}
           realFormId={realFormId}
           enterpriseNames={enterpriseNames}
         />
       )}
       {filter === "productTypes" && (
-        /* && !error && !isPending && */ <ResultProduct
-          /* data={data}
-          isPending={isPending}
-          error={error} */
+        <ResultProduct
           filter={filter}
           realFormId={realFormId}
           enterpriseNames={enterpriseNames}

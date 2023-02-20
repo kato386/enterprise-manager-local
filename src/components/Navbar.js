@@ -54,12 +54,7 @@ const Navbar = () => {
           >
             Search
           </Link>
-          <Link
-            className="text-white flex items-center gap-2 text-opacity-80 hover:text-opacity-100"
-            to="/result"
-          >
-            Results
-          </Link>
+
           <Link
             className="text-white flex items-center gap-2 text-opacity-80 hover:text-opacity-100"
             to=""

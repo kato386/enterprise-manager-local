@@ -13,8 +13,9 @@ const Context = ({ names }) => {
   const [filter, setFilter] = useState("");
   const [dummyFilter, setDummyFilter] = useState("");
   const [enterpriseNames, setEnterpriseNames] = useState(["now"]);
+  const [days, setDays] = useState();
   return (
-    <div className="relative h-[650px] before:bg-gradient-to-r before:from-purple-600 before:to-purple-300 before:absolute before:inset-0 before:w-full before:h-full before:z-10">
+    <div className="relative h-[700px] before:bg-gradient-to-r before:from-purple-600 before:to-purple-300 before:absolute before:inset-0 before:w-full before:h-full before:z-10">
       <div className="container flex justify-between absolute top-0 z-20 items-center left-1/2 -translate-x-1/2 h-full">
         <div>
           <InputField
@@ -28,6 +29,7 @@ const Context = ({ names }) => {
             setDummyFilter={setDummyFilter}
             setRealFormId={setRealFormId}
             setEnterpriseNames={setEnterpriseNames}
+            setDays={setDays}
           />
         </div>
         <div className="w-[700px] min-w-[400px]">
@@ -38,12 +40,13 @@ const Context = ({ names }) => {
                 filterInfo={filterInfo}
                 filter={filter}
                 enterpriseNames={enterpriseNames}
+                days={days}
               />
             </div>
           ) : (
             <div className="min-w-[450px] m-[50px]">
               <img
-                className="m-[50px]"
+                className="mb-[50px]"
                 src="https://upload.wikimedia.org/wikipedia/commons/3/37/Jotform_logo.png"
               />
               <div className="flex items-center">

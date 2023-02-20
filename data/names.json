@@ -33,7 +33,7 @@
     "numberOfPaymentForms": 1
   },
   "productNumber": {
-    "numberOfProductsSold": 10
+    "numberOfProductsSold": [1, 2, 3, 4, 5, 6]
   },
   "productTypes": {
     "productTypes": ["bagis", "araba", "ev", "ek hizmetler"]

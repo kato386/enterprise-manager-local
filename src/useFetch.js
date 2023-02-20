@@ -15,6 +15,7 @@ const useFetch = (endPointUrl) => {
       .get(endPointUrl)
       .then((response) => {
         setData(response.data);
+        console.log(response.data);
         setIsPending(false);
         setError(null);
       })
