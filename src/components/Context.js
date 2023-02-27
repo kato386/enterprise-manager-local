@@ -12,7 +12,7 @@ const Context = ({ names }) => {
   const [filterInfo, setFilterInfo] = useState([]);
   const [filter, setFilter] = useState("");
   const [dummyFilter, setDummyFilter] = useState("");
-  const [enterpriseNames, setEnterpriseNames] = useState(["now"]);
+  const [enterpriseNames, setEnterpriseNames] = useState([""]);
   const [days, setDays] = useState();
   return (
     <div className="relative h-[700px] before:bg-gradient-to-r before:from-purple-600 before:to-purple-300 before:absolute before:inset-0 before:w-full before:h-full before:z-10">
