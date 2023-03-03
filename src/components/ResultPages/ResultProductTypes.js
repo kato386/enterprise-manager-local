@@ -1,9 +1,9 @@
 import Loading from "../Loading";
-import useFetch from "../../useFetch";
-const ResultProductTypes = ({ /* data, isPending, error, */ filter }) => {
-  const { data, isPending, error } = useFetch(
-    "http://localhost:8000/" + filter
-  );
+import useFetchParam from "../../api/useFetchParam";
+const ResultProductTypes = ({ filter, realFormId }) => {
+  const { data, isPending, error } = useFetchParam(filter, realFormId);
+
+  console.log(data);
   return (
     <div>
       {error && (
@@ -25,7 +25,7 @@ const ResultProductTypes = ({ /* data, isPending, error, */ filter }) => {
         <div>
           ResultProduct
           <ul>
-            {data.productTypes.map((d) => (
+            {data.content.map((d) => (
               <li key={d}>{d}</li>
             ))}
           </ul>

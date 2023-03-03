@@ -1,14 +1,9 @@
 import Loading from "../Loading";
-import useFetch from "../../useFetch";
-const SoldProductResult = ({
-  /* data, isPending, error, */ filter,
-  enterpriseNames,
-}) => {
-  const { data, isPending, error } = useFetch(
-    "http://localhost:8000/" + filter
-  );
+import useFetchParam from "../../api/useFetchParam";
 
-  const head = ["EnterPrise", "Number Of Product Sold"];
+import Chart from "./Chart";
+const SoldProductResult = ({ filter, days, realFormId }) => {
+  const { data, isPending, error } = useFetchParam(filter, realFormId, days);
 
   return (
     <div>
@@ -28,29 +23,8 @@ const SoldProductResult = ({
         </div>
       )}
       {!error && !isPending && (
-        <div className="w-full  p-7">
-          <table
-            className="w-full border rounded
-        "
-          >
-            <thead>
-              <tr>
-                {head.map((h, key) => (
-                  <th className="text-left text-lg font-semibold" key={key}>
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {enterpriseNames.map((enterprise, key) => (
-                <tr key={key}>
-                  <td>{enterprise.value}</td>
-                  <td>{data.numberOfProductsSold}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="w-full p-7">
+          <Chart data={data.content} days={days} />
         </div>
       )}
     </div>
