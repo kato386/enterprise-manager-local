@@ -13,7 +13,7 @@ const Result = ({ realFormId, filterInfo, filter, enterpriseNames, days }) => {
         />
       )}
 
-      {filter === "productNumber" && (
+      {filter === "soldProduct" && (
         <SoldProductResult
           filter={filter}
           realFormId={realFormId}
@@ -21,19 +21,15 @@ const Result = ({ realFormId, filterInfo, filter, enterpriseNames, days }) => {
           days={days}
         />
       )}
-      {filter === "numberPayment" && (
+      {filter === "paymentFormNumber" && (
         <PaymentFormResult
           filter={filter}
           realFormId={realFormId}
           enterpriseNames={enterpriseNames}
         />
       )}
-      {filter === "productTypes" && (
-        <ResultProduct
-          filter={filter}
-          realFormId={realFormId}
-          enterpriseNames={enterpriseNames}
-        />
+      {filter === "findProductType" && (
+        <ResultProduct filter={filter} realFormId={realFormId} />
       )}
     </div>
   );

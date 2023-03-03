@@ -135,25 +135,25 @@ function Footer() {
           <nav className="flex gap-x-3">
             <a
               href=""
-              className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-80 flex items-center justify-center"
+              className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-10 flex items-center justify-center"
             >
               <FaFacebook />
             </a>
             <a
               href=""
-              className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-80 flex items-center justify-center"
+              className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-10 flex items-center justify-center"
             >
               <FaInstagram />
             </a>
             <a
               href=""
-              className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-80 flex items-center justify-center"
+              className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-10 flex items-center justify-center"
             >
               <FaTwitter />
             </a>
             <a
               href=""
-              className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-80 flex items-center justify-center"
+              className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-10 flex items-center justify-center"
             >
               <FaLinkedin />
             </a>

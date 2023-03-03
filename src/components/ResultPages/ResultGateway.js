@@ -1,14 +1,9 @@
 import Loading from "../Loading";
-import useFetch from "../../useFetch";
 
-const ResultGateway = ({
-  /* data, error,isPending, */ filter,
-  realFormId,
-  enterpriseNames,
-}) => {
-  const { data, isPending, error } = useFetch(
-    "http://localhost:8000/" + filter
-  );
+import useFetchParam from "../../api/useFetchParam";
+
+const ResultGateway = ({ filter, realFormId, enterpriseNames }) => {
+  const { data, isPending, error } = useFetchParam(filter, realFormId);
   const head = ["EnterPrise", "GatewayName", "FormID"];
 
   return (
@@ -48,7 +43,7 @@ const ResultGateway = ({
               {enterpriseNames.map((enterprise, key) => (
                 <tr key={key}>
                   <td>{enterprise.value}</td>
-                  <td>{data.gatewayname}</td>
+                  <td>{data.content}</td>
                   <td>{realFormId ? realFormId : ""}</td>
                 </tr>
               ))}

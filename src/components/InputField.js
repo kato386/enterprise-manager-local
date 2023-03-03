@@ -1,14 +1,12 @@
-import CheckBox from "./CheckBox";
 import AsyncSelect from "react-select/async";
 import { useEffect, useState, useRef } from "react";
 import RadioButton from "./RadioButton";
-const USER_REGEX = /^[0-9]{12}$/;
+const USER_REGEX = /^[0-9]{15}$/;
 const DAYS_REGEX = /^[1-9][0-9]$/;
 const InputField = ({
   filterInfo,
   setFilterInfo,
   names,
-  filter,
   setFilter,
   setSuccess,
   dummyFilter,
@@ -97,7 +95,7 @@ const InputField = ({
   const [showHideDays, setShowHideDays] = useState(false);
   const [inputDays, setInputDays] = useState();
   useEffect(() => {
-    if (dummyFilter === "productNumber") {
+    if (dummyFilter === "soldProduct") {
       setShowHideDays(true);
     } else {
       setShowHideDays(false);
@@ -133,27 +131,6 @@ const InputField = ({
 
         <div className="container flex justify-between w-full h-[150px] bg-purple-300 p-2 mt-2">
           <div className="grid grid-cols-2 grid-rows-2">
-            {/* <RadioButton
-              value="gatewayName"
-              name={"Gateway name."}
-              handleChange={handleChangeForRadioBox}
-            />
-            <RadioButton
-              value="productNumber"
-              name={"Number of payment forms."}
-              handleChange={handleChangeForRadioBox}
-            />
-            <RadioButton
-              value="numberPayment"
-              name={"Number of products sold."}
-              handleChange={handleChangeForRadioBox}
-            />
-            <RadioButton
-              value="productTypes"
-              name={"Product types."}
-              handleChange={handleChangeForRadioBox}
-            /> */}
-
             <div className="col-span-1 row-span-1 bg-purple-400 border-2 rounded-xl ">
               <div className="grid grid-rows-1 grid-cols-3">
                 <input
@@ -162,10 +139,13 @@ const InputField = ({
                   value="gatewayName"
                   checked={dummyFilter === "gatewayName"}
                   onChange={handleChangeForRadioBox}
-                  id="a"
+                  id="gatewayName"
                 />
 
-                <label className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3">
+                <label
+                  htmlFor="gatewayName"
+                  className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3"
+                >
                   Gateway name.
                 </label>
               </div>
@@ -176,13 +156,16 @@ const InputField = ({
                 <input
                   className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
                   type="radio"
-                  value="numberPayment"
-                  checked={dummyFilter === "numberPayment"}
+                  value="paymentFormNumber"
+                  checked={dummyFilter === "paymentFormNumber"}
                   onChange={handleChangeForRadioBox}
-                  id="a"
+                  id="paymentFormNumber"
                 />
 
-                <label className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3">
+                <label
+                  htmlFor="paymentFormNumber"
+                  className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3"
+                >
                   Number of payment forms.
                 </label>
               </div>
@@ -192,13 +175,16 @@ const InputField = ({
                 <input
                   className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
                   type="radio"
-                  value="productNumber"
-                  checked={dummyFilter === "productNumber"}
+                  value="soldProduct"
+                  checked={dummyFilter === "soldProduct"}
                   onChange={handleChangeForRadioBox}
-                  id="a"
+                  id="soldProduct"
                 />
 
-                <label className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3">
+                <label
+                  htmlFor="soldProduct"
+                  className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3"
+                >
                   Number of products sold.
                 </label>
               </div>
@@ -208,13 +194,16 @@ const InputField = ({
                 <input
                   className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
                   type="radio"
-                  value="productTypes"
-                  checked={dummyFilter === "productTypes"}
+                  value="findProductType"
+                  checked={dummyFilter === "findProductType"}
                   onChange={handleChangeForRadioBox}
-                  id="a"
+                  id="findProductType"
                 />
 
-                <label className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3">
+                <label
+                  htmlFor="findProductType"
+                  className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3"
+                >
                   Product types.
                 </label>
               </div>
@@ -247,7 +236,7 @@ const InputField = ({
             />
           </div>
         </div>
-        <div className={showHideDays == true ? "" : "hidden"}>
+        <div className={showHideDays === true ? "" : "hidden"}>
           <div className="grid grid-rows-2 gap-1">
             <label className="text-gray-500 font-bold " htmlFor="days">
               Number of days.(last x days):
@@ -258,7 +247,7 @@ const InputField = ({
               id="days"
               autoComplete="off"
               onChange={(e) => setInputDays(e.target.value)}
-              required={showHideDays == true}
+              required={showHideDays === true}
             />
           </div>
         </div>
@@ -297,7 +286,7 @@ const InputField = ({
           className="bg-orange-400 w-full h-12 transition-colors hover:bg-purple-700 hover:text-orange-400 mt-3 flex items-center justify-center rounded-lg text-purple-700"
           disabled={
             dummyFilter === "" ||
-            selectedElements.length == 0 ||
+            selectedElements.length === 0 ||
             !(showHide === "no") & !validName
               ? true
               : false

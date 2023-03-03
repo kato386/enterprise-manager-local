@@ -1,5 +1,5 @@
 import React from "react";
-import useFetch from "../useFetch";
+import useFetch from "../api/useFetch";
 import Context from "./Context";
 import Loading from "./Loading";
 const Search = () => {

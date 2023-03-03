@@ -1,16 +1,9 @@
 import Loading from "../Loading";
-import useFetch from "../../useFetch";
+import useFetchParam from "../../api/useFetchParam";
 
 import Chart from "./Chart";
-const SoldProductResult = ({
-  /* data, isPending, error, */ filter,
-  enterpriseNames,
-  days,
-}) => {
-  //days parametre olarak gönderilecek.
-  const { data, isPending, error } = useFetch(
-    "http://localhost:8000/" + filter
-  );
+const SoldProductResult = ({ filter, days, realFormId }) => {
+  const { data, isPending, error } = useFetchParam(filter, realFormId, days);
 
   return (
     <div>
@@ -31,7 +24,7 @@ const SoldProductResult = ({
       )}
       {!error && !isPending && (
         <div className="w-full p-7">
-          <Chart data={data.numberOfProductsSold} days={days} />
+          <Chart data={data.content} days={days} />
         </div>
       )}
     </div>

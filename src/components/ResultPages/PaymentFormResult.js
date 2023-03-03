@@ -1,12 +1,11 @@
 import Loading from "../Loading";
-import useFetch from "../../useFetch";
+import useFetchParam from "../../api/useFetchParam";
+
 const PaymentFormResult = ({
   /* data, isPending, error, */ filter,
   enterpriseNames,
 }) => {
-  const { data, isPending, error } = useFetch(
-    "http://localhost:8000/" + filter
-  );
+  const { data, isPending, error } = useFetchParam(filter);
 
   const head = ["EnterPrise", "Number Of Payment Forms"];
 
@@ -46,7 +45,7 @@ const PaymentFormResult = ({
               {enterpriseNames.map((enterprise, key) => (
                 <tr key={key}>
                   <td>{enterprise.value}</td>
-                  <td>{data.numberOfPaymentForms}</td>
+                  <td>{data.content}</td>
                 </tr>
               ))}
             </tbody>
