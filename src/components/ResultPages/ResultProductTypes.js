@@ -1,8 +1,8 @@
 import Loading from "../Loading";
 import useFetchParam from "../../api/useFetchParam";
-const ResultProductTypes = ({ filter, realFormId }) => {
+const ResultProductTypes = ({ filter, realFormId, enterpriseNames }) => {
   const { data, isPending, error } = useFetchParam(filter, realFormId);
-
+  const head = ["EnterPrise", "ProductType", "FormID"];
   return (
     <div>
       {error && (
@@ -21,13 +21,30 @@ const ResultProductTypes = ({ filter, realFormId }) => {
         </div>
       )}
       {!error && !isPending && (
-        <div>
-          ResultProduct
-          <ul>
-            {data.content.map((d) => (
-              <li key={d}>{d}</li>
-            ))}
-          </ul>
+        <div className="w-full  p-7">
+          <table
+            className="w-full border rounded
+        "
+          >
+            <thead>
+              <tr>
+                {head.map((h, key) => (
+                  <th className="text-left text-lg font-semibold" key={key}>
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {enterpriseNames.map((enterprise, key) => (
+                <tr key={key}>
+                  <td>{enterprise.value}</td>
+                  <td>{data.content}</td>
+                  <td>{realFormId ? realFormId : ""}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
