@@ -14,12 +14,23 @@ const Chart = ({ data, days }) => {
       {
         label: "Products sold.",
         data: data,
-        backgroundColor: "red",
-        borderWidth: 4,
+        backgroundColor: [
+          "rgb(255, 99, 132)",
+          "rgb(54, 162, 235)",
+          "rgb(255, 205, 86)",
+        ],
+
+        hoverOffset: 4,
+        borderWidth: 2,
+        barPercentage: 0.9,
       },
     ],
   });
-  return <Bar data={userData} />;
+  return (
+    <div className="bg-purple-400">
+      <Bar data={userData} />
+    </div>
+  );
 };
 
 export default Chart;

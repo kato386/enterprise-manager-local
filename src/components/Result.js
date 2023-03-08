@@ -4,7 +4,7 @@ import ResultProduct from "./ResultPages/ResultProductTypes";
 import SoldProductResult from "./ResultPages/SoldProductResult";
 const Result = ({ realFormId, filterInfo, filter, enterpriseNames, days }) => {
   return (
-    <div className="bg-purple-500 h-[500px] rounded-lg text-white">
+    <div className="bg-purple-500  h-[400px] rounded-lg text-white">
       {filter === "gatewayName" && (
         <ResultGateway
           filter={filter}

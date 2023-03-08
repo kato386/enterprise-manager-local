@@ -3,7 +3,6 @@ import useFetchParam from "../../api/useFetchParam";
 const ResultProductTypes = ({ filter, realFormId }) => {
   const { data, isPending, error } = useFetchParam(filter, realFormId);
 
-  console.log(data);
   return (
     <div>
       {error && (
