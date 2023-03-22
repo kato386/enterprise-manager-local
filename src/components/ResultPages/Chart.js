@@ -3,13 +3,21 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { useState } from "react";
 
 const Chart = ({ data, days }) => {
-  var labels = [];
-  for (let i = 1; i <= days; i++) {
-    labels.push("Day " + i);
-  }
+  const getPastDates = (x) => {
+    const dates = [];
+    const today = new Date();
+    for (let i = x - 1; i >= 0; i--) {
+      const date = new Date(today);
+      date.setDate(today.getDate() - i);
+      dates.push(date.toISOString().slice(0, 10));
+    }
+    return dates;
+  };
+
+  const datesArray = getPastDates(days);
 
   const [userData, setUsetData] = useState({
-    labels: labels,
+    labels: datesArray,
     datasets: [
       {
         label: "Products sold.",

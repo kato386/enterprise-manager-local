@@ -23,7 +23,7 @@ const SoldProductResult = ({ filter, days, realFormId }) => {
         </div>
       )}
       {!error && !isPending && (
-        <div className="w-full p-7">
+        <div className="w-full p-7 ">
           <Chart data={data.content} days={days} />
         </div>
       )}

@@ -27,15 +27,18 @@ const PaymentFormResult = ({
         </div>
       )}
       {!error && !isPending && (
-        <div className="w-full  p-7">
+        <div className="h-[385px] p-2 overflow-scroll overflow-x-hidden">
           <table
-            className="w-full border rounded
+            className="w-full border rounded relative
         "
           >
             <thead>
               <tr>
                 {head.map((h, key) => (
-                  <th className="text-left text-lg font-semibold" key={key}>
+                  <th
+                    className="text-red-200 p-2 text-left text-lg font-semibold sticky top-0"
+                    key={key}
+                  >
                     {h}
                   </th>
                 ))}
@@ -44,8 +47,8 @@ const PaymentFormResult = ({
             <tbody>
               {enterpriseNames.map((enterprise, key) => (
                 <tr key={key}>
-                  <td>{enterprise.value}</td>
-                  <td>{data.content}</td>
+                  <td className="p-2">{enterprise.value}</td>
+                  <td className="p-2">{data.content}</td>
                 </tr>
               ))}
             </tbody>

@@ -84,7 +84,6 @@ const InputField = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     setSuccess(true);
-
     setEnterpriseNames(selectedElements);
     setRealFormId(formId);
     setFilter(dummyFilter);
@@ -93,12 +92,13 @@ const InputField = ({
 
   /////////////////////////////////show hide days input field.
   const [showHideDays, setShowHideDays] = useState(false);
-  const [inputDays, setInputDays] = useState();
+  const [inputDays, setInputDays] = useState("");
   useEffect(() => {
     if (dummyFilter === "soldProduct") {
       setShowHideDays(true);
     } else {
       setShowHideDays(false);
+      setInputDays("");
     }
   }, [dummyFilter]);
 
@@ -215,8 +215,10 @@ const InputField = ({
           <label htmlFor="idQuestion" className="col-span-2">
             Do you want to enter FormId.
           </label>
-          <div id="idQuestion" className="text-xl">
-            <label htmlFor="yesInput">Yes</label>
+          <div id="idQuestion">
+            <label className="m-1" htmlFor="yesInput">
+              Yes
+            </label>
             <input
               type="radio"
               value="yes"
@@ -225,7 +227,9 @@ const InputField = ({
               onChange={() => {}}
               id="yesInput"
             />
-            <label htmlFor="noInput">No</label>
+            <label className="m-1" htmlFor="noInput">
+              No
+            </label>
             <input
               type="radio"
               value="no"
@@ -245,6 +249,7 @@ const InputField = ({
               className="row-span-1 h-10 border-2 border-gray-200 rounded p-3 w-full"
               type="text"
               id="days"
+              value={inputDays}
               autoComplete="off"
               onChange={(e) => setInputDays(e.target.value)}
               required={showHideDays === true}
