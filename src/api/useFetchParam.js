@@ -20,7 +20,6 @@ const useFetch = (endPointUrl, ...parameter) => {
       })
       .then((response) => {
         setData(response.data);
-        console.log(response);
         setIsPending(false);
         setError(null);
       })
@@ -28,7 +27,7 @@ const useFetch = (endPointUrl, ...parameter) => {
         setError(error.message);
         setIsPending(false);
       });
-  }, [endPointUrl]);
+  }, [endPointUrl, ...parameter]);
 
   return { data, isPending, error };
 };

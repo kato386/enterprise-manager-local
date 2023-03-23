@@ -21,7 +21,7 @@ const Search = () => {
         </div>
       )}
       {!error && isPending && (
-        <div className="h-[650px]">
+        <div className="h-full">
           <Loading />
         </div>
       )}

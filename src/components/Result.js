@@ -2,9 +2,9 @@ import ResultGateway from "./ResultPages/ResultGateway";
 import PaymentFormResult from "./ResultPages/PaymentFormResult";
 import ResultProduct from "./ResultPages/ResultProductTypes";
 import SoldProductResult from "./ResultPages/SoldProductResult";
-const Result = ({ realFormId, filterInfo, filter, enterpriseNames, days }) => {
+const Result = ({ realFormId, filter, enterpriseNames, days }) => {
   return (
-    <div className="bg-purple-500 h-[500px] rounded-lg text-white">
+    <div className="bg-purple-500  h-[385px] rounded-lg  text-white">
       {filter === "gatewayName" && (
         <ResultGateway
           filter={filter}
@@ -29,7 +29,11 @@ const Result = ({ realFormId, filterInfo, filter, enterpriseNames, days }) => {
         />
       )}
       {filter === "findProductType" && (
-        <ResultProduct filter={filter} realFormId={realFormId} />
+        <ResultProduct
+          filter={filter}
+          realFormId={realFormId}
+          enterpriseNames={enterpriseNames}
+        />
       )}
     </div>
   );

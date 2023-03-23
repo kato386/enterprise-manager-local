@@ -8,7 +8,6 @@ const Dropdown = ({ names }) => {
   const [selectedElements, setSelectedElements] = useState(null);
 
   const loadNames = (searchValue, callback) => {
-    //TODO:fetch burada yapılmalı o sırada yükleme noktaları çıkıcak.
     const filteredNames = options.filter((option) =>
       option.label.toLowerCase().includes(searchValue.toLowerCase())
     );
