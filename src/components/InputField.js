@@ -17,7 +17,7 @@ const InputField = ({
 }) => {
   //enterprise name input field
   var options = names.map((name) => ({ value: name.name, label: name.name }));
-
+  console.log("a");
   const [selectedElements, setSelectedElements] = useState("");
 
   const loadNames = (searchValue, callback) => {
