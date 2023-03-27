@@ -18,7 +18,7 @@ const InputField = ({
   //enterprise name input field
   var options = names.map((name) => ({ value: name.name, label: name.name }));
 
-  const [selectedElements, setSelectedElements] = useState([]);
+  const [selectedElements, setSelectedElements] = useState("");
 
   const loadNames = (searchValue, callback) => {
     //search islemiyle enterprise secme
@@ -122,7 +122,6 @@ const InputField = ({
             <AsyncSelect
               id="names"
               className="text-sm text-gray-500 border-1 "
-              isMulti
               loadOptions={loadNames}
               onChange={handleInput}
             ></AsyncSelect>
