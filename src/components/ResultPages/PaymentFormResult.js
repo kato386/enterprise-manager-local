@@ -1,10 +1,7 @@
 import Loading from "../Loading";
 import useFetchParam from "../../api/useFetchParam";
 
-const PaymentFormResult = ({
-  /* data, isPending, error, */ filter,
-  enterpriseNames,
-}) => {
+const PaymentFormResult = ({ filter, enterpriseNames }) => {
   const { data, isPending, error } = useFetchParam(filter);
 
   const head = ["EnterPrise", "Number Of Payment Forms"];
@@ -45,12 +42,10 @@ const PaymentFormResult = ({
               </tr>
             </thead>
             <tbody>
-              {enterpriseNames.map((enterprise, key) => (
-                <tr key={key}>
-                  <td className="p-2">{enterprise.value}</td>
-                  <td className="p-2">{data.content}</td>
-                </tr>
-              ))}
+              <tr>
+                <td className="p-2">{enterpriseNames.value}</td>
+                <td className="p-2">{data.content}</td>
+              </tr>
             </tbody>
           </table>
         </div>

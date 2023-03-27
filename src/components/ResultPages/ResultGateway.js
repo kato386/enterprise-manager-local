@@ -45,20 +45,20 @@ const ResultGateway = ({ filter, realFormId, enterpriseNames }) => {
               </tr>
             </thead>
             <tbody>
-              {realFormId
-                ? enterpriseNames.map((enterprise, key) => (
-                    <tr key={key}>
-                      <td className="p-2">{enterprise.value}</td>
-                      <td className="p-2">{data.content}</td>
-                      <td className="p-2">{realFormId}</td>
-                    </tr>
-                  ))
-                : data.content.map((gateway, key) => (
-                    <tr key={key}>
-                      <td className="p-2">{enterpriseNames[0].value}</td>
-                      <td className="p-2">{gateway}</td>
-                    </tr>
-                  ))}
+              {realFormId ? (
+                <tr>
+                  <td className="p-2">{enterpriseNames.value}</td>
+                  <td className="p-2">{data.content}</td>
+                  <td className="p-2">{realFormId}</td>
+                </tr>
+              ) : (
+                data.content.map((gateway, key) => (
+                  <tr key={key}>
+                    <td className="p-2">{enterpriseNames.value}</td>
+                    <td className="p-2">{gateway}</td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

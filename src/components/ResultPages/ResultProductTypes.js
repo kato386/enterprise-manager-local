@@ -39,13 +39,11 @@ const ResultProductTypes = ({ filter, realFormId, enterpriseNames }) => {
               </tr>
             </thead>
             <tbody>
-              {enterpriseNames.map((enterprise, key) => (
-                <tr key={key}>
-                  <td className="p-2">{enterprise.value}</td>
-                  <td className="p-2">{data.content}</td>
-                  <td className="p-2">{realFormId ? realFormId : ""}</td>
-                </tr>
-              ))}
+              <tr>
+                <td className="p-2">{enterpriseNames.value}</td>
+                <td className="p-2">{data.content}</td>
+                <td className="p-2">{realFormId ? realFormId : ""}</td>
+              </tr>
             </tbody>
           </table>
         </div>
