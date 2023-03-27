@@ -3,8 +3,8 @@ import useFetchParam from "../../api/useFetchParam";
 const ResultProductTypes = ({ filter, realFormId, enterpriseNames }) => {
   const { data, isPending, error } = useFetchParam(filter, realFormId);
   const head = realFormId
-    ? ["EnterPrise", "GatewayName", "FormID"]
-    : ["EnterPrise", "GatewayName"];
+    ? ["EnterPrise", "ProductType", "FormID"]
+    : ["EnterPrise", "ProductType"];
   return (
     <div>
       {error && (
