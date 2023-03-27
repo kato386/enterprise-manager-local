@@ -19,10 +19,14 @@ const useFetch = (endPointUrl, ...parameter) => {
         },
       })
       .then((response) => {
-        setData(response.data);
-        setIsPending(false);
-        setError(null);
-        console.log(response);
+        if (response.data.responseCode == 400) {
+          setError("Form id not found.");
+        } else {
+          setData(response.data);
+          setIsPending(false);
+          setError(null);
+          console.log(response.data.content);
+        }
       })
       .catch((error) => {
         setError(error.message);

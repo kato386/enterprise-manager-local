@@ -1,13 +1,9 @@
 import React from "react";
-import useFetch from "../api/useFetch";
+import useFetchParam from "../api/useFetchParam";
 import Context from "./Context";
 import Loading from "./Loading";
 const Search = () => {
-  const {
-    data: names,
-    isPending,
-    error,
-  } = useFetch("http://localhost:8000/names");
+  const { data: names, isPending, error } = useFetchParam("enterpriseArray");
 
   return (
     <div className="intro">
@@ -25,7 +21,7 @@ const Search = () => {
           <Loading />
         </div>
       )}
-      {!error && !isPending && <Context names={names} />}
+      {!error && !isPending && <Context names={names.content} />}
     </div>
   );
 };

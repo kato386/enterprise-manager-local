@@ -2,7 +2,7 @@ import AsyncSelect from "react-select/async";
 import { useEffect, useState, useRef } from "react";
 import RadioButton from "./RadioButton";
 const USER_REGEX = /^[0-9]{15}$/;
-const DAYS_REGEX = /^[1-9][0-9]$/;
+const DAYS_REGEX = /^[1-9][0-9]?$|^[1-2][0-9]{2}$/;
 const InputField = ({
   filterInfo,
   setFilterInfo,
@@ -16,8 +16,9 @@ const InputField = ({
   setDays,
 }) => {
   //enterprise name input field
-  var options = names.map((name) => ({ value: name.name, label: name.name }));
-  console.log("a");
+
+  var options = names.map((name) => ({ value: name, label: name }));
+
   const [selectedElements, setSelectedElements] = useState("");
 
   const loadNames = (searchValue, callback) => {
@@ -35,7 +36,7 @@ const InputField = ({
 
   ////// formid focus ,input ,hide show
   const [showHide, setShowHide] = useState("no");
-  const [validName, setValidName] = useState(true);
+  const [validInput, setvalidInput] = useState(true);
 
   const userRef = useRef();
 
@@ -60,17 +61,19 @@ const InputField = ({
   useEffect(() => {
     if (showHide === "yes") {
       const result = USER_REGEX.test(formId);
-      setValidName(result);
+      setvalidInput(result);
     }
   }, [formId]);
 
   const handleshow = (e) => {
-    const getshow = e.target.value;
-    if (getshow === "no") {
-      setFormId("");
-      userRef.current.value = "";
+    if (dummyFilter !== "paymentFormNumber") {
+      const getshow = e.target.value;
+      if (getshow === "no") {
+        setFormId("");
+        userRef.current.value = "";
+      }
+      setShowHide(getshow);
     }
-    setShowHide(getshow);
   };
 
   ////////////////////////////////////////
@@ -93,6 +96,7 @@ const InputField = ({
   /////////////////////////////////show hide days input field.
   const [showHideDays, setShowHideDays] = useState(false);
   const [inputDays, setInputDays] = useState("");
+  const [validDays, setValidDays] = useState(true);
   useEffect(() => {
     if (dummyFilter === "soldProduct") {
       setShowHideDays(true);
@@ -101,6 +105,21 @@ const InputField = ({
       setInputDays("");
     }
   }, [dummyFilter]);
+
+  useEffect(() => {
+    if (dummyFilter === "paymentFormNumber") {
+      setShowHide("no");
+      setFormId("");
+      userRef.current.value = "";
+    }
+  }, [dummyFilter]);
+  useEffect(() => {
+    if (showHideDays === true) {
+      const resultDays = DAYS_REGEX.test(inputDays);
+
+      setValidDays(resultDays);
+    }
+  }, [inputDays]);
 
   return (
     <div className="w-[400px] min-w-[400px] bg-gray-50 rounded-lg p-6">
@@ -254,6 +273,16 @@ const InputField = ({
               required={showHideDays === true}
             />
           </div>
+
+          <p
+            className={
+              validDays ? "hidden" : "bg-black text-white p-3 mt-3 rounded"
+            }
+          >
+            1-299
+            <br />
+            Only numbers allowed.
+          </p>
         </div>
 
         <div className={showHide === "yes" ? "" : "hidden"}>
@@ -278,7 +307,7 @@ const InputField = ({
 
           <p
             className={
-              !validName ? "bg-black text-white p-3 mt-3 rounded" : "hidden"
+              !validInput ? "bg-black text-white p-3 mt-3 rounded" : "hidden"
             }
           >
             12 characters.
@@ -291,7 +320,7 @@ const InputField = ({
           disabled={
             dummyFilter === "" ||
             selectedElements.length === 0 ||
-            !(showHide === "no") & !validName
+            !(showHide === "no") & !validInput
               ? true
               : false
           }
