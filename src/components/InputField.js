@@ -320,7 +320,8 @@ const InputField = ({
           disabled={
             dummyFilter === "" ||
             selectedElements.length === 0 ||
-            !(showHide === "no") & !validInput
+            (showHide === "yes") & !validInput ||
+            (showHideDays === true) & !validDays
               ? true
               : false
           }
