@@ -8,23 +8,23 @@ function Footer() {
       items: [
         {
           title: "Kaydol",
-          link: "#",
+          link: "https://www.jotform.com/signup/",
         },
         {
           title: "Form Oluşturun",
-          link: "#",
+          link: "https://www.jotform.com/build",
         },
         {
           title: "Formlarım",
-          link: "#",
+          link: "https://www.jotform.com/myforms/",
         },
         {
           title: "Fiyatlandırma",
-          link: "#",
+          link: "https://www.jotform.com/pricing/",
         },
         {
           title: "Jotform Kurumsal",
-          link: "#",
+          link: "https://www.jotform.com/enterprise/?utm_medium=referral&utm_source=jotform.com&utm_content=JotForm_Enterprise&utm_campaign=enterprise_common_footer",
         },
       ],
     },
@@ -37,11 +37,11 @@ function Footer() {
         },
         {
           title: "Form Temaları",
-          link: "#",
+          link: "https://www.jotform.com/theme-store/",
         },
         {
           title: "Form Widget'ları",
-          link: "#",
+          link: "https://www.jotform.com/theme-store/",
         },
         {
           title: "Entegrasyonlar",
@@ -54,11 +54,11 @@ function Footer() {
       items: [
         {
           title: "Bize Ulaşın",
-          link: "#",
+          link: "https://www.jotform.com/contact/",
         },
         {
           title: "Kullanıcı Kılavuzu",
-          link: "#",
+          link: "https://www.jotform.com/help/",
         },
         {
           title: "Yardım",
@@ -66,15 +66,15 @@ function Footer() {
         },
         {
           title: "Web Seminerleri",
-          link: "#",
+          link: "https://www.jotform.com/webinars/",
         },
         {
           title: "Kötüye Kullanımı Bildir",
-          link: "#",
+          link: "https://www.jotform.com/report-abuse/",
         },
         {
           title: "Telif Hakkı Konusu Bildir",
-          link: "#",
+          link: "https://www.jotform.com/copyright/",
         },
       ],
     },
@@ -83,27 +83,27 @@ function Footer() {
       items: [
         {
           title: "Hakkımızda",
-          link: "#",
+          link: "https://www.jotform.com/about/",
         },
         {
           title: "Kariyer",
-          link: "#",
+          link: "https://www.jotform.com/tr/about/istanbul/",
         },
         {
           title: "Medya Kiti",
-          link: "#",
+          link: "https://www.jotform.com/resources/",
         },
         {
           title: "Haberlerde Jotform",
-          link: "#",
+          link: "https://www.jotform.com/resources/in-the-news/",
         },
         {
           title: "Bültenler",
-          link: "#",
+          link: "https://www.jotform.com/newsletters/",
         },
         {
           title: "Blog",
-          link: "#",
+          link: "https://www.jotform.com/blog/",
         },
       ],
     },
@@ -119,10 +119,10 @@ function Footer() {
           <section>
             <nav className="grid gap-y-4">
               <h6 className="text-lg text-purple-700">Mobil Uygulamalar</h6>
-              <a href="">
+              <a href="https://play.google.com/store/apps/details?id=com.jotform.v2&referrer=adjust_reftag%3DcJ6rkpUgK45J5%26utm_source%3DJotform.com%2BWebsite%26utm_campaign%3Dfooter%26utm_content%3D_%26utm_term%3Dcta_android%26utm_medium%3Dfooter">
                 <img src="https://getir.com/_next/static/images/appstore-tr-141ed939fceebdcee96af608fa293b31.svg" />
               </a>
-              <a href="">
+              <a href="https://apps.apple.com/app/id1391524277?mt=8&pt=119101370&ct=Jotform.com+Website">
                 <img src="https://getir.com/_next/static/images/googleplay-tr-6b0c941b7d1a65d781fb4b644498be75.svg" />
               </a>
             </nav>
@@ -134,25 +134,25 @@ function Footer() {
           </div>
           <nav className="flex gap-x-3">
             <a
-              href=""
+              href="https://www.facebook.com/Jotform"
               className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-10 flex items-center justify-center"
             >
               <FaFacebook />
             </a>
             <a
-              href=""
+              href="https://www.instagram.com/jotform_official/"
               className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-10 flex items-center justify-center"
             >
               <FaInstagram />
             </a>
             <a
-              href=""
+              href="https://twitter.com/jotform"
               className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-10 flex items-center justify-center"
             >
               <FaTwitter />
             </a>
             <a
-              href=""
+              href="https://www.linkedin.com/company/jotform/"
               className="w-8 h-8 rounded-lg text-gray-700 hover:bg-purple-700 hover:bg-opacity-10 flex items-center justify-center"
             >
               <FaLinkedin />
