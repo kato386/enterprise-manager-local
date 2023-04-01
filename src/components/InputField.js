@@ -1,7 +1,7 @@
 import AsyncSelect from "react-select/async";
 import { useEffect, useState, useRef } from "react";
 import RadioButton from "./RadioButton";
-const USER_REGEX = /^[0-9]{15}$/;
+const USER_REGEX = /^[0-9]{14,15}$/;
 const DAYS_REGEX = /^[1-9][0-9]?$|^[1-2][0-9]{2}$/;
 const InputField = ({
   filterInfo,
@@ -89,6 +89,7 @@ const InputField = ({
     setSuccess(true);
     setEnterpriseNames(selectedElements);
     setRealFormId(formId);
+
     setFilter(dummyFilter);
     setDays(inputDays);
   };
@@ -310,7 +311,7 @@ const InputField = ({
               !validInput ? "bg-black text-white p-3 mt-3 rounded" : "hidden"
             }
           >
-            12 characters.
+            15 characters.
             <br />
             Only numbers allowed.
           </p>

@@ -16,7 +16,7 @@ const Context = ({ names }) => {
   const [days, setDays] = useState("0");
   return (
     <div className="relative h-[800px] before:bg-gradient-to-r before:from-purple-600 before:to-purple-300 before:absolute before:inset-0 before:w-full before:h-full before:z-10">
-      <div className="container flex justify-between absolute top-0 z-20 items-center left-1/2 -translate-x-1/2 h-full">
+      <div className="container flex justify-between absolute z-20 items-center left-1/2 -translate-x-1/2 h-full">
         <div>
           <InputField
             names={names}

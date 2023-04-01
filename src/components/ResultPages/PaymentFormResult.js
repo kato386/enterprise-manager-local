@@ -1,6 +1,6 @@
 import Loading from "../Loading";
 import useFetchParam from "../../api/useFetchParam";
-
+import Error from "../Error";
 const PaymentFormResult = ({ filter, enterpriseNames }) => {
   const { data, isPending, error } = useFetchParam(filter);
 
@@ -9,13 +9,8 @@ const PaymentFormResult = ({ filter, enterpriseNames }) => {
   return (
     <div>
       {error && (
-        <div className="">
-          {error && (
-            <h4 className="text-white text-4xl">
-              {error + " accured."}
-              <br />
-            </h4>
-          )}
+        <div className="max-w-3xl mx-auto mt-4">
+          <Error message={error} />
         </div>
       )}
       {!error && isPending && (

@@ -1,23 +1,17 @@
 import Loading from "../Loading";
-
+import Error from "../Error";
 import useFetchParam from "../../api/useFetchParam";
+import useFetchParamPostDemo from "../../api/useFetchParamPostDemo";
 
 const ResultGateway = ({ filter, realFormId, enterpriseNames }) => {
-  const { data, isPending, error } = useFetchParam(filter, realFormId);
-  const head = realFormId
-    ? ["EnterPrise", "GatewayName", "FormID"]
-    : ["EnterPrise", "GatewayName"];
+  const { data, isPending, error } = useFetchParamPostDemo(filter, realFormId);
+  const head = ["EnterPrise", "GatewayName", "FormID"];
 
   return (
     <div className="">
       {error && (
-        <div className="">
-          {error && (
-            <h4 className="text-white text-4xl">
-              {error + " accured."}
-              <br />
-            </h4>
-          )}
+        <div className="max-w-3xl mx-auto mt-4">
+          <Error message={error} />
         </div>
       )}
       {!error && isPending && (
@@ -45,20 +39,21 @@ const ResultGateway = ({ filter, realFormId, enterpriseNames }) => {
               </tr>
             </thead>
             <tbody>
-              {realFormId ? (
-                <tr>
-                  <td className="p-2">{enterpriseNames.value}</td>
-                  <td className="p-2">{data.content}</td>
-                  <td className="p-2">{realFormId}</td>
-                </tr>
-              ) : (
-                data.content.map((gateway, key) => (
-                  <tr key={key}>
-                    <td className="p-2">{enterpriseNames.value}</td>
-                    <td className="p-2">{gateway}</td>
-                  </tr>
-                ))
-              )}
+              {realFormId
+                ? data.content.demo["gateway-list"].map((gateway, key) => (
+                    <tr key={key}>
+                      <td className="p-2">{enterpriseNames.value}</td>
+                      <td className="p-2">{gateway.value}</td>
+                      <td className="p-2">{gateway.form_id}</td>
+                    </tr>
+                  ))
+                : data.content.demo["gateway-list"].map((gateway, key) => (
+                    <tr key={key}>
+                      <td className="p-2">{enterpriseNames.value}</td>
+                      <td className="p-2">{gateway.value}</td>
+                      <td className="p-2">{gateway.form_id}</td>
+                    </tr>
+                  ))}
             </tbody>
           </table>
         </div>
