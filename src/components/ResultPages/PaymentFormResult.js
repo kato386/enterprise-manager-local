@@ -19,16 +19,16 @@ const PaymentFormResult = ({ filter, enterpriseNames }) => {
         </div>
       )}
       {!error && !isPending && (
-        <div className="h-[385px] p-2 overflow-scroll overflow-x-hidden">
+        <div className="h-[385px]  overflow-scroll overflow-x-hidden">
           <table
-            className="w-full border rounded relative
+            className="w-full border rounded  border-collapse table-auto divide-y divide-gray-200
         "
           >
-            <thead>
+            <thead className="sticky top-0 bg-white text-left ">
               <tr>
                 {head.map((h, key) => (
                   <th
-                    className="text-red-200 p-2 text-left text-lg font-semibold sticky top-0"
+                    className="px-6 py-3 text-red-500 text-xs  uppercase tracking-wider  "
                     key={key}
                   >
                     {h}
@@ -38,8 +38,8 @@ const PaymentFormResult = ({ filter, enterpriseNames }) => {
             </thead>
             <tbody>
               <tr>
-                <td className="p-2">{enterpriseNames.value}</td>
-                <td className="p-2">{data.content}</td>
+                <td className="px-6 py-4">{enterpriseNames.value}</td>
+                <td className="px-6 py-4">{data.content}</td>
               </tr>
             </tbody>
           </table>

@@ -4,8 +4,8 @@ import Error from "../Error";
 const ResultProductTypes = ({ filter, realFormId, enterpriseNames }) => {
   const { data, isPending, error } = useFetchParam(filter, realFormId);
   const head = realFormId
-    ? ["EnterPrise", "ProductType", "FormID"]
-    : ["EnterPrise", "ProductType"];
+    ? ["EnterPrise", "Product Type", "Form ID"]
+    : ["EnterPrise", "Product Type"];
   return (
     <div>
       {error && (
@@ -19,16 +19,16 @@ const ResultProductTypes = ({ filter, realFormId, enterpriseNames }) => {
         </div>
       )}
       {!error && !isPending && (
-        <div className="h-[385px] p-2 overflow-scroll overflow-x-hidden">
+        <div className="h-[385px]  overflow-scroll overflow-x-hidden">
           <table
-            className="w-full border rounded relative
+            className="w-full border rounded  border-collapse table-auto divide-y divide-gray-200
         "
           >
-            <thead>
+            <thead className="sticky top-0 bg-white text-left ">
               <tr>
                 {head.map((h, key) => (
                   <th
-                    className="text-red-200 p-2 text-left text-lg font-semibold sticky top-0"
+                    className="px-6 py-3 text-red-500 text-xs  uppercase tracking-wider"
                     key={key}
                   >
                     {h}
@@ -36,18 +36,18 @@ const ResultProductTypes = ({ filter, realFormId, enterpriseNames }) => {
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-gray-200">
               {realFormId ? (
                 <tr>
-                  <td className="p-2">{enterpriseNames.value}</td>
-                  <td className="p-2">{data.content}</td>
-                  <td className="p-2">{realFormId}</td>
+                  <td className="px-6 py-4">{enterpriseNames.value}</td>
+                  <td className="px-6 py-4">{data.content}</td>
+                  <td className="px-6 py-4">{realFormId}</td>
                 </tr>
               ) : (
                 data.content.map((gateway, key) => (
                   <tr key={key}>
-                    <td className="p-2">{enterpriseNames.value}</td>
-                    <td className="p-2">{gateway}</td>
+                    <td className="px-6 py-4">{enterpriseNames.value}</td>
+                    <td className="px-6 py-4">{gateway}</td>
                   </tr>
                 ))
               )}

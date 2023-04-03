@@ -17,7 +17,10 @@ const InputField = ({
 }) => {
   //enterprise name input field
 
-  var options = names.map((name) => ({ value: name, label: name }));
+  var options = names.map((name) => ({
+    value: name.company,
+    label: name.company,
+  }));
 
   const [selectedElements, setSelectedElements] = useState("");
 
