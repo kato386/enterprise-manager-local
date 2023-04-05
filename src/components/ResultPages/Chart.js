@@ -35,7 +35,7 @@ const Chart = ({ data, days }) => {
     ],
   });
   return (
-    <div className="bg-purple-400">
+    <div className="bg-purple-400  p-3 border rounded">
       <Bar data={userData} />
     </div>
   );

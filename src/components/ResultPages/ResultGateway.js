@@ -1,10 +1,14 @@
 import Loading from "../Loading";
 import Error from "../Error";
-import useFetchParam from "../../api/useFetchParam";
-import useFetchParamPostDemo from "../../api/useFetchParamPostDemo";
 
+import useFetchParamPostDemo from "../../api/useFetchParamPostDemo";
+import ChartGateway from "./ChartGateway";
 const ResultGateway = ({ filter, realFormId, enterpriseNames }) => {
-  const { data, isPending, error } = useFetchParamPostDemo(filter, realFormId);
+  const { data, isPending, error } = useFetchParamPostDemo(
+    filter,
+    realFormId,
+    enterpriseNames
+  );
   const head = ["EnterPrise", "Gateway Name", "Form ID"];
 
   return (
@@ -22,6 +26,20 @@ const ResultGateway = ({ filter, realFormId, enterpriseNames }) => {
 
       {!error && !isPending && (
         <div className="h-[385px] overflow-scroll overflow-x-hidden">
+          {!realFormId &&
+            Object.keys(data.content).map((key) =>
+              data.content[key]["gateway-list"] &&
+              data.content[key]["gateway-list"].length > 0 ? (
+                <ChartGateway
+                  key={key}
+                  data={data.content[key]["gateway-list"]}
+                  enterpriseNames={enterpriseNames.value}
+                />
+              ) : (
+                <div key={key}></div>
+              )
+            )}
+
           <table
             className="w-full border rounded  border-collapse table-auto divide-y divide-gray-200
           "
@@ -38,22 +56,26 @@ const ResultGateway = ({ filter, realFormId, enterpriseNames }) => {
                 ))}
               </tr>
             </thead>
+
             <tbody className="divide-y divide-gray-200">
-              {realFormId
-                ? data.content.demo["gateway-list"].map((gateway, key) => (
-                    <tr key={key} className="text-white">
-                      <td className="px-6 py-4">{enterpriseNames.value}</td>
+              {Object.keys(data.content).map((key) =>
+                data.content[key]["gateway-list"] &&
+                data.content[key]["gateway-list"].length > 0 ? (
+                  data.content[key]["gateway-list"].map((gateway, index) => (
+                    <tr key={index} className="text-white">
+                      <td className="px-6 py-4">{key}</td>
                       <td className="px-6 py-4">{gateway.value}</td>
                       <td className="px-6 py-4">{gateway.form_id}</td>
                     </tr>
                   ))
-                : data.content.demo["gateway-list"].map((gateway, key) => (
-                    <tr key={key} className="text-white">
-                      <td className="px-6 py-4">{enterpriseNames.value}</td>
-                      <td className="px-6 py-4">{gateway.value}</td>
-                      <td className="px-6 py-4">{gateway.form_id}</td>
-                    </tr>
-                  ))}
+                ) : (
+                  <tr key={key} className="text-white">
+                    <td className="px-6 py-4">{key}</td>
+                    <td className="px-6 py-4">Enterprise not found.</td>
+                    <td className="px-6 py-4">Enterprise not found.</td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>

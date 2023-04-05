@@ -11,7 +11,7 @@ const useFetchParamPostDemo = (endPointUrl, ...parameter) => {
     setError(null);
 
     const formData = new FormData();
-    formData.append("accounts[]", "demo");
+
     formData.append("method[]", "gateway-list");
 
     const config = {
@@ -24,6 +24,9 @@ const useFetchParamPostDemo = (endPointUrl, ...parameter) => {
     if (parameter[0]) {
       config.params["params[formID][]"] = parameter[0];
     }
+    if (parameter[1]) {
+      formData.append("accounts[0]", parameter[1].value);
+    }
 
     axios
       .post(
@@ -33,7 +36,7 @@ const useFetchParamPostDemo = (endPointUrl, ...parameter) => {
       )
       .then((response) => {
         setData(response.data);
-        console.log(response.data.content.demo["gateway-list"]);
+        console.log(response.data);
         setIsPending(false);
         setError(null);
       })

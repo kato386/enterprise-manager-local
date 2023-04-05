@@ -233,7 +233,13 @@ const InputField = ({
           </div>
         </div>
 
-        <div className="grid grid-rows-1 grid-cols-3 text-gray-500 font-bold  whitespace-nowrap mr-2 col-span-1">
+        <div
+          className={
+            dummyFilter === "paymentFormNumber"
+              ? "hidden"
+              : "grid grid-rows-1 grid-cols-3 text-gray-500 font-bold  whitespace-nowrap mr-2 col-span-1"
+          }
+        >
           <label htmlFor="idQuestion" className="col-span-2">
             Do you want to enter FormId.
           </label>
@@ -314,7 +320,7 @@ const InputField = ({
               !validInput ? "bg-black text-white p-3 mt-3 rounded" : "hidden"
             }
           >
-            15 characters.
+            14-15 characters.
             <br />
             Only numbers allowed.
           </p>
