@@ -21,6 +21,12 @@ const InputField = ({
     value: name.company,
     label: name.company,
   }));
+  options.push({ value: "ywca", label: "ywca" });
+  options.push({ value: "whiterockcity", label: "whiterockcity" });
+  options.push({ value: "evergreentlc", label: "evergreentlc" });
+  options.push({ value: "firstdata", label: "firstdata" });
+  options.push({ value: "stuyversbread", label: "stuyversbread" });
+  options.push({ value: "ssfinc", label: "ssfinc" });
 
   const [selectedElements, setSelectedElements] = useState("");
 
@@ -151,85 +157,56 @@ const InputField = ({
           </div>
         </div>
 
-        <div className="container flex justify-between w-full h-[150px] bg-purple-300 p-2 mt-2">
-          <div className="grid grid-cols-2 grid-rows-2">
-            <div className="col-span-1 row-span-1 bg-purple-400 border-2 rounded-xl ">
-              <div className="grid grid-rows-1 grid-cols-3">
-                <input
-                  className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
-                  type="radio"
-                  value="gatewayName"
-                  checked={dummyFilter === "gatewayName"}
-                  onChange={handleChangeForRadioBox}
-                  id="gatewayName"
-                />
-
-                <label
-                  htmlFor="gatewayName"
-                  className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3"
-                >
-                  Gateway name.
-                </label>
+        <div className="container flex justify-between w-full h-[150px] mt-[20px]  ">
+          <div className="grid grid-cols-2 grid-rows-2 gap-y-4 gap-x-1 ">
+            <label class="cursor-pointer col-span-1 row-span-1 ">
+              <input
+                type="radio"
+                class="peer sr-only"
+                value="gatewayName"
+                checked={dummyFilter === "gatewayName"}
+                onChange={handleChangeForRadioBox}
+              />
+              <div class=" rounded-md bg-purple-300 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-blue-800 peer-checked:ring-blue-600 ">
+                <p class="text-sm font-bold">Gateway names of enterprise. </p>
               </div>
-            </div>
-
-            <div className="col-span-1 row-span-1 bg-purple-400 border-2 rounded-xl ">
-              <div className="grid grid-rows-1 grid-cols-3">
-                <input
-                  className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
-                  type="radio"
-                  value="paymentFormNumber"
-                  checked={dummyFilter === "paymentFormNumber"}
-                  onChange={handleChangeForRadioBox}
-                  id="paymentFormNumber"
-                />
-
-                <label
-                  htmlFor="paymentFormNumber"
-                  className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3"
-                >
-                  Number of payment forms.
-                </label>
+            </label>
+            <label class="cursor-pointer col-span-1 row-span-1">
+              <input
+                type="radio"
+                class="peer sr-only"
+                value="paymentFormNumber"
+                checked={dummyFilter === "paymentFormNumber"}
+                onChange={handleChangeForRadioBox}
+              />
+              <div class=" rounded-md bg-purple-300 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-blue-800 peer-checked:ring-blue-600 ">
+                <p class="text-sm font-bold">Number of payment forms.</p>
               </div>
-            </div>
-            <div className="col-span-1 row-span-1 bg-purple-400 border-2 rounded-xl ">
-              <div className="grid grid-rows-1 grid-cols-3">
-                <input
-                  className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
-                  type="radio"
-                  value="soldProduct"
-                  checked={dummyFilter === "soldProduct"}
-                  onChange={handleChangeForRadioBox}
-                  id="soldProduct"
-                />
-
-                <label
-                  htmlFor="soldProduct"
-                  className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3"
-                >
-                  Number of products sold.
-                </label>
+            </label>
+            <label class="cursor-pointer col-span-1 row-span-1">
+              <input
+                type="radio"
+                class="peer sr-only"
+                value="soldProduct"
+                checked={dummyFilter === "soldProduct"}
+                onChange={handleChangeForRadioBox}
+              />
+              <div class=" rounded-md bg-purple-300 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-blue-800 peer-checked:ring-blue-600 ">
+                <p class="text-sm font-bold">Number of products sold.</p>
               </div>
-            </div>
-            <div className="col-span-1 row-span-1 bg-purple-400 border-2 rounded-xl ">
-              <div className="grid grid-rows-1 grid-cols-3">
-                <input
-                  className="w-5 h-7 text-blue-600 bg-gray-100 border-gray-300 m-2 rounded col-span-1"
-                  type="radio"
-                  value="findProductType"
-                  checked={dummyFilter === "findProductType"}
-                  onChange={handleChangeForRadioBox}
-                  id="findProductType"
-                />
-
-                <label
-                  htmlFor="findProductType"
-                  className=" text-sm font-medium text-gray-900 col-span-2 items-center mt-3"
-                >
-                  Product types.
-                </label>
+            </label>
+            <label class="cursor-pointer col-span-1 row-span-1">
+              <input
+                type="radio"
+                class="peer sr-only"
+                value="findProductType"
+                checked={dummyFilter === "findProductType"}
+                onChange={handleChangeForRadioBox}
+              />
+              <div class=" rounded-md bg-purple-300 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-blue-800 peer-checked:ring-blue-600 ">
+                <p class="text-sm font-bold">Product types of enterprise.</p>
               </div>
-            </div>
+            </label>
           </div>
         </div>
 
@@ -237,35 +214,47 @@ const InputField = ({
           className={
             dummyFilter === "paymentFormNumber"
               ? "hidden"
-              : "grid grid-rows-1 grid-cols-3 text-gray-500 font-bold  whitespace-nowrap mr-2 col-span-1"
+              : "grid grid-rows-1 grid-cols-3 text-gray-600  mr-2 mt-[25px] col-span-1"
           }
         >
-          <label htmlFor="idQuestion" className="col-span-2">
+          <label htmlFor="idQuestion" className="col-span-2 font-bold">
             Do you want to enter FormId.
           </label>
-          <div id="idQuestion">
-            <label className="m-1" htmlFor="yesInput">
-              Yes
-            </label>
-            <input
-              type="radio"
-              value="yes"
-              checked={showHide === "yes"}
-              onClick={handleshow}
-              onChange={() => {}}
-              id="yesInput"
-            />
-            <label className="m-1" htmlFor="noInput">
-              No
-            </label>
-            <input
-              type="radio"
-              value="no"
-              checked={showHide === "no"}
-              onChange={() => {}}
-              id="noInput"
-              onClick={handleshow}
-            />
+          <div id="idQuestion" className="flex justify-around">
+            <div className="">
+              <input
+                className="sr-only peer"
+                type="radio"
+                value="yes"
+                checked={showHide === "yes"}
+                onClick={handleshow}
+                onChange={() => {}}
+                id="yesInput"
+              />
+              <label
+                className="m-1 peer-checked:text-blue-800 ring-2 ring-transparent font-bold text-sm text-gray-600 bg-purple-200 rounded px-4 p-1 peer-checked:ring-blue-600"
+                htmlFor="yesInput"
+              >
+                Yes
+              </label>
+            </div>
+            <div className=" ">
+              <input
+                className="sr-only peer"
+                type="radio"
+                value="no"
+                checked={showHide === "no"}
+                onChange={() => {}}
+                id="noInput"
+                onClick={handleshow}
+              />
+              <label
+                className="m-1 peer-checked:text-blue-800 ring-2 ring-transparent  font-bold text-sm text-gray-600 bg-purple-200 rounded px-4 p-1 peer-checked:ring-blue-600"
+                htmlFor="noInput"
+              >
+                No
+              </label>
+            </div>
           </div>
         </div>
         <div className={showHideDays === true ? "" : "hidden"}>
@@ -326,7 +315,7 @@ const InputField = ({
           </p>
         </div>
         <button
-          className="bg-orange-400 w-full h-12 transition-colors hover:bg-purple-700 hover:text-orange-400 mt-3 flex items-center justify-center rounded-lg text-purple-700"
+          className="bg-orange-400  w-full h-12 transition-colors hover:bg-purple-700 hover:text-orange-400 mt-[20px] flex items-center justify-center rounded-lg  text-lg"
           disabled={
             dummyFilter === "" ||
             selectedElements.length === 0 ||

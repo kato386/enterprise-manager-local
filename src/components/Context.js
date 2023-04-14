@@ -32,7 +32,7 @@ const Context = ({ names }) => {
             setDays={setDays}
           />
         </div>
-        <div className="w-[700px] min-w-[400px]">
+        <div className="w-[900px] min-w-[400px]">
           {success ? (
             <div>
               <Result

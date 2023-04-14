@@ -9,7 +9,7 @@ const PaymentFormResult = ({ filter, enterpriseNames }) => {
   return (
     <div>
       {error && (
-        <div className="max-w-3xl mx-auto mt-4">
+        <div className="mx-auto mt-4">
           <Error message={error} />
         </div>
       )}
@@ -19,16 +19,16 @@ const PaymentFormResult = ({ filter, enterpriseNames }) => {
         </div>
       )}
       {!error && !isPending && (
-        <div className="h-[385px]  overflow-scroll overflow-x-hidden">
+        <div className="h-[500px] bg-gray-200 overflow-scroll overflow-x-hidden">
           <table
-            className="w-full border rounded  border-collapse table-auto divide-y divide-gray-200
+            className="w-full border rounded  border-collapse table-auto divide-y divide-gray-700
         "
           >
             <thead className="sticky top-0 bg-white text-left ">
               <tr>
                 {head.map((h, key) => (
                   <th
-                    className="px-6 py-3 text-red-500 text-xs  uppercase tracking-wider  "
+                    className="px-6 py-3 text-blue-700 text-xs  uppercase tracking-wider  "
                     key={key}
                   >
                     {h}
@@ -36,10 +36,14 @@ const PaymentFormResult = ({ filter, enterpriseNames }) => {
                 ))}
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td className="px-6 py-4">{enterpriseNames.value}</td>
-                <td className="px-6 py-4">{data.content}</td>
+            <tbody className="divide-y divide-gray-700">
+              <tr className="group text-black border border-gray-700">
+                <td className="px-6 py-4 group-hover:bg-purple-200">
+                  {enterpriseNames.value}
+                </td>
+                <td className="px-6 py-4 group-hover:bg-purple-200">
+                  {data.content}
+                </td>
               </tr>
             </tbody>
           </table>

@@ -8,7 +8,7 @@ const SoldProductResult = ({ filter, days, realFormId }) => {
   return (
     <div>
       {error && (
-        <div className="max-w-3xl mx-auto mt-4">
+        <div className="mx-auto mt-4">
           <Error message={error} />
         </div>
       )}
@@ -18,7 +18,7 @@ const SoldProductResult = ({ filter, days, realFormId }) => {
         </div>
       )}
       {!error && !isPending && (
-        <div className="w-full p-7 ">
+        <div className="w-full p-3  bg-gray-100">
           <Chart data={data.content} days={days} />
         </div>
       )}

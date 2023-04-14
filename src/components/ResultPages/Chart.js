@@ -14,6 +14,14 @@ const Chart = ({ data, days }) => {
     return dates;
   };
 
+  const toplam = (sayilar) => {
+    let toplam = 0;
+    for (let i = 0; i < sayilar.length; i++) {
+      toplam += sayilar[i];
+    }
+    return toplam;
+  };
+
   const datesArray = getPastDates(days);
 
   const [userData, setUsetData] = useState({
@@ -34,9 +42,43 @@ const Chart = ({ data, days }) => {
       },
     ],
   });
+
+  const options = {
+    plugins: {
+      title: {
+        display: true,
+        text: "Number of products sold : " + toplam(data),
+        color: "black",
+      },
+      legend: {
+        labels: {
+          color: "black",
+        },
+      },
+    },
+    scales: {
+      y: {
+        ticks: {
+          color: "black",
+          font: {
+            size: 14,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          color: "black",
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+  };
+
   return (
-    <div className="bg-purple-400  p-3 border rounded">
-      <Bar data={userData} />
+    <div className="bg-gray-100 mt-8 rounded p-2">
+      <Bar data={userData} options={options} />
     </div>
   );
 };
